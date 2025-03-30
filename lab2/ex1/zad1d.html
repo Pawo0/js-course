@@ -1,0 +1,28 @@
+<!-- @author Stanisław Polak <polak@agh.edu.pl> -->
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Plik 'zadanie1D.html'</title>
+    <script defer src="zad1.js"></script>
+</head>
+<body>
+<h1>Plik 'zadanie1D.html'</h1>
+<form onInput="wynik.value = pole_tekstowe.value + pole_liczbowe.value">
+    <input id="pole_tekstowe" type="text" placeholder="Wprowadź tekst">
+    +
+    <input id="pole_liczbowe" type="number" placeholder="Wprowadź liczbę">
+    =
+    <output name="wynik" for="pole_tekstowe pole_liczbowe">Tu pojawi się wynik obliczeń</output>
+    <br>
+    <input type="button" value="Wypisz" onclick="funkcja_zwrtona()">
+</form>
+<script>
+    // for (let i = 0; i < 4; i++) {
+    //     let xd = window.prompt(`Prompt ${i + 1}`, "pisz tutaj...");
+    //     console.log("Wczytana wartosc: " + xd)
+    // }
+</script>
+</body>
+</html>
