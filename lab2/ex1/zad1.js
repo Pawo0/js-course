@@ -4,6 +4,7 @@ function funkcja_zwrtona() {
             console.log("wczytanaWartoscZPolaTekstowego:" + typeof el.value)
         else if (el.id === "pole_liczbowe")
             console.log("wczytanaWartośćZPolaNumerycznego:" + typeof el.value)
+        console.log(el.value)
     })
 }
 funkcja_zwrtona()

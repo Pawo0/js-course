@@ -9,7 +9,15 @@
 </head>
 <body>
 <h1>Plik 'zadanie1D.html'</h1>
-<form onInput="wynik.value = pole_tekstowe.value + pole_liczbowe.value">
+<form onInput="wynik.value =
+!isNaN(parseInt(pole_tekstowe.value)) ?
+    !isNaN(parseInt(pole_liczbowe.value)) ?
+         parseInt(pole_liczbowe.value)  + parseInt(pole_tekstowe.value) :
+         parseInt(pole_tekstowe.value)  :
+    !isNaN(parseInt(pole_liczbowe.value)) ?
+        parseInt(pole_liczbowe.value) :
+        0
+">
     <input id="pole_tekstowe" type="text" placeholder="Wprowadź tekst">
     +
     <input id="pole_liczbowe" type="number" placeholder="Wprowadź liczbę">
