@@ -7,7 +7,7 @@
 <body>
 <main>
     <h1>Płótno</h1>
-    <canvas id="canvas" style="border:1px solid #000000;">
+    <canvas id="canvas" style="border:1px solid #000000;" width="100" height="100">
         Wygląda na to, że twoja przeglądarka nie obsługuje elementu "canvas"
     </canvas>
 </main>
@@ -15,14 +15,28 @@
     "use strict";
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
-    // ctx.fillText("Hello World", 10, canvas.height / 2);
-    // ustaw kolor
-    ctx.fillStyle = 'rgb(200, 0, 0)';
-    ctx.fillRect(20, 20, 150, 100)
-    ctx.fillStyle = 'rgba(0, 0, 200, 0.5)';
-    ctx.fillRect(50, 50, 150, 100)
-    ctx.fillStyle = 'rgba(0, 200, 0, 0.5)';
-    ctx.fillRect(35, 35, 100, 50)
+
+    ctx.fillStyle = "#007BFF";
+    ctx.fillRect(20, 20, 40, 40);
+
+    ctx.beginPath();
+    ctx.arc(60, 60, 20, 0, 2 * Math.PI);
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(70, 10);
+    ctx.lineTo(90, 50);
+    ctx.lineTo(50, 50);
+    ctx.closePath();
+    ctx.fill();
+
+    // ustawieni favicony
+    const favicon = document.createElement("link");
+    favicon.rel = "icon";
+    favicon.type = "image/png";
+    favicon.href = canvas.toDataURL("image/png");
+
+    document.head.appendChild(favicon);
 </script>
 </body>
 </html>

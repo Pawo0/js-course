@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>USOS</title>
+    <!-- Tailwind JS -->
+    <script
+            src="https://cdn.tailwindcss.com"></script>
+    <!-- Icons -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="icon" type="image/png" href="img/favicon_js.png">
+
+</head>
+<body>
+
+<main class="flex flex-col w-[80%] m-auto gap-5">
+    <header class="bg-sky-200 flex gap-4 p-5 sm:justify-between flex-col md:flex-row">
+        <div class=" flex gap-4 flex-col md:items-center md:flex-row ">
+
+            <div class="flex justify-between w-full items-center md:w-fit">
+                <h1 class="font-medium text-lg "><a href="index.html"> Dziekanat</a></h1>
+                <button id="hamburger-btn"
+                        class="hover:bg-sky-300 active:bg-sky-400 p-1 border border-gray-500 rounded-md md:hidden">
+                    <svg class="size-5 " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                         stroke-width="1.5" stroke="currentColor">
+                        <path class=" " style="background-color: red" stroke-linecap="round" stroke-linejoin="round"
+                              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+                    </svg>
+                </button>
+
+            </div>
+            <ul class="hamburger-wrap hidden flex gap-4 flex-col transition-all duration-300 md:flex-row md:flex">
+                <li>Studia stacjonarne</li>
+                <li>Studia niestacjonarne</li>
+                <li>Pracownicy</li>
+            </ul>
+        </div>
+        <h1 class="hamburger-wrap hidden font-medium text-lg justify-self-end md:block"><a href="usos.html">USOS</a>
+        </h1>
+    </header>
+    <h2 class="font-bold text-3xl px-5">Wydział informatyki</h2>
+    <div id="container" class="border flex flex-col gap-5 items-center p-1 sm:flex-row ">
+        <section class="border border-gray-500 rounded-xl w-[70%] flex-1 flex flex-col">
+            <div class="p-5 bg-neutral-200 rounded-t-xl border-b border-gray-500">Jan Kowalski</div>
+            <div class="">
+                <svg class="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path fill-rule="evenodd"
+                          d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z"
+                          clip-rule="evenodd"/>
+                </svg>
+                Pracownik
+            </div>
+            <div class="p-5 bg-neutral-200 rounded-b-xl border-t border-gray-500">
+                Karta 1
+            </div>
+        </section>
+        <section class="border border-gray-500 rounded-xl w-[70%] flex-1 flex flex-col">
+            <div class="p-5 bg-neutral-200 rounded-t-xl border-b border-gray-500">Anna Nowak</div>
+            <div class="">
+                <svg class="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path fill-rule="evenodd"
+                          d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z"
+                          clip-rule="evenodd"/>
+                </svg>
+                Student
+            </div>
+            <div class="p-5 bg-neutral-200 rounded-b-xl border-t border-gray-500">
+                Karta 2
+            </div>
+        </section>
+        <section class="border border-gray-500 rounded-xl w-[70%] flex-1 flex flex-col">
+            <div class="p-5 bg-neutral-200 rounded-t-xl border-b border-gray-500">Jerzy Zmuda</div>
+            <div class="">
+                <svg class="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path fill-rule="evenodd"
+                          d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z"
+                          clip-rule="evenodd"/>
+                </svg>
+                Student
+            </div>
+            <div class="p-5 bg-neutral-200 rounded-b-xl border-t border-gray-500">
+                Karta 3
+            </div>
+        </section>
+    </div>
+    <footer class="p-5 bg-sky-200">
+        Adres e-mail
+    </footer>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
