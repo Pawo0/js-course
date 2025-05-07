@@ -98,6 +98,30 @@ addBlock.addEventListener('submit' , (event) => {
     gradeInput.value = "dodano";
 })
 
+changeBlock.addEventListener('submit', (e) =>{
+    e.preventDefault()
+
+    if (!validateChangedGrades(inp_matematyka.value) || !validateChangedGrades(inp_fizyka.value) || !validateChangedGrades(inp_chemia.value) || !validateChangedGrades(inp_polski.value)){
+        alert("Niepoprawny format ocen");
+        return;
+    }
+
+    currentData.subjects.Matematyka = inp_matematyka.value;
+    currentData.subjects.Fizyka = inp_fizyka.value;
+    currentData.subjects.Chemia = inp_chemia.value;
+    currentData.subjects.Polski = inp_polski.value;
+
+    localStorage.setItem(currentUser, JSON.stringify(currentData));
+
+})
+
+function validateChangedGrades(inp){
+//     check if match regex like 9, 9, 9,
+    const regex = /^(\d+, )*\d+,?$|^$/;
+    return regex.test(inp);
+
+}
+
 choiceForm.addEventListener('submit', (event) => {
     event.preventDefault()
 })
