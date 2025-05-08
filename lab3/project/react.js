@@ -45,7 +45,7 @@ function Menu(props) {
 }
 
 function AddPage(props) {
-    const {currentStudent, currentStudentData, setCurrentStudentData, subjects} = props;
+    const {currentStudent, currentStudentData, setCurrentStudentData, subjects, students, setStudents} = props;
     const [selectedSubject, setSelectedSubject] = React.useState("");
     const [selectedGrade, setSelectedGrade] = React.useState("");
 
@@ -60,24 +60,26 @@ function AddPage(props) {
             return;
         }
 
-        const students = JSON.parse(localStorage.getItem("students"));
-        if (!students[currentStudent][selectedSubject]) {
-            students[currentStudent][selectedSubject] = [];
+        const updatedStudentData = {...currentStudentData};
+
+        if (!updatedStudentData[selectedSubject]) {
+            updatedStudentData[selectedSubject] = [];
         }
 
         const gradeAsNumber = Number(selectedGrade);
-        students[currentStudent][selectedSubject].push(gradeAsNumber);
+        updatedStudentData[selectedSubject].push(gradeAsNumber);
 
-        localStorage.setItem("students", JSON.stringify(students));
+        setCurrentStudentData(updatedStudentData);
 
-        setCurrentStudentData(students[currentStudent]);
+        const updatedStudents = {...students};
+        updatedStudents[currentStudent] = updatedStudentData;
+        setStudents(updatedStudents);
+
+        localStorage.setItem("students", JSON.stringify(updatedStudents));
+
         setSelectedSubject("none");
         setSelectedGrade("");
-        window.alert("Ocena zostala dodana");
-    }
-
-    const handleGradePick = (e, grade) => {
-        setSelectedGrade(grade);
+        window.alert("Ocena została dodana");
     }
 
     return (
@@ -97,7 +99,9 @@ function AddPage(props) {
                 <span className="text-xl">Ocena</span>
                 <div className="flex gap-4">
                     {[1, 2, 3, 4, 5, 6].map((grade) => (
-                        <Button key={grade} text={grade} prop={grade} handleButton={handleGradePick}/>
+                        <Button key={grade} text={grade}  handleButton={() => {
+                            setSelectedGrade(grade);
+                        }}/>
                     ))}
                 </div>
                 <span className="text-xl">Wybrana ocena: {selectedGrade}</span>
@@ -109,9 +113,8 @@ function AddPage(props) {
 
 
 function ChangePage(props) {
-    const {currentStudent, currentStudentData, setCurrentStudentData} = props;
+    const {currentStudent, currentStudentData, setCurrentStudentData, students, setStudents} = props;
     const subjects = Object.keys(currentStudentData);
-
 
     const handleKeyDown = (e, subject) => {
         const key = e.key;
@@ -129,13 +132,15 @@ function ChangePage(props) {
                 return newData;
             })
         }
-
     }
 
     const handleSave = () => {
-        const students = JSON.parse(localStorage.getItem("students"));
-        students[currentStudent] = currentStudentData;
-        localStorage.setItem("students", JSON.stringify(students));
+        const updatedStudents = {...students};
+        updatedStudents[currentStudent] = currentStudentData;
+        setStudents(updatedStudents);
+
+
+        localStorage.setItem("students", JSON.stringify(updatedStudents));
         window.alert("Oceny zostaly zapisane");
     }
 
@@ -152,11 +157,9 @@ function ChangePage(props) {
                 ))}
             </div>
             <Button text={"Zapisz"} handleButton={handleSave}/>
-
         </div>
     )
 }
-
 function DisplayPage(props) {
     const {currentStudent, currentStudentData} = props;
     const subjects = Object.keys(currentStudentData);
@@ -192,15 +195,15 @@ function App() {
     const [page, setPage] = React.useState("menu");
 
     React.useEffect(() => {
-        // if (localStorage.getItem("students") === null) {
-        //     localStorage.setItem("students", JSON.stringify(students));
-        // } else {
-        //     setStudents(JSON.parse(localStorage.getItem("students")));
-        // }
+        if (localStorage.getItem("students") === null) {
+            localStorage.setItem("students", JSON.stringify(students));
+        } else {
+            setStudents(JSON.parse(localStorage.getItem("students")));
+        }
 
 
-        localStorage.setItem("students", JSON.stringify(students));
-        setStudents(JSON.parse(localStorage.getItem("students")));
+        // localStorage.setItem("students", JSON.stringify(students));
+        // setStudents(JSON.parse(localStorage.getItem("students")));
     }, []);
 
 
@@ -238,6 +241,8 @@ function App() {
                             currentStudentData={currentStudentData}
                             setCurrentStudentData={setCurrentStudentData}
                             subjects={subjects}
+                            students={students}
+                            setStudents={setStudents}
                 />
             )}
             {page === "add" && (
@@ -245,6 +250,8 @@ function App() {
                          currentStudentData={currentStudentData}
                          setCurrentStudentData={setCurrentStudentData}
                          subjects={subjects}
+                         students={students}
+                         setStudents={setStudents}
                 />
             )}
         </div>
