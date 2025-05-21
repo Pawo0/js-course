@@ -1,0 +1,50 @@
+{
+  "Adamczyk Czech": {
+    "Matematyka": [
+      5,
+      5
+    ],
+    "Fizyka": [
+      4,
+      1,
+      4,
+      6
+    ],
+    "Chemia": [
+      3
+    ]
+  },
+  "Jan Kowalski": {
+    "Matematyka": [
+      5
+    ],
+    "Fizyka": [
+      4,
+      6,
+      2
+    ],
+    "Chemia": [
+      3,
+      3
+    ]
+  },
+  "Jan Nowak": {
+    "Matematyka": [
+      2,
+      5
+    ]
+  },
+  "Adam Nowak": {
+    "Fizyka": [
+      4
+    ],
+    "Chemia": [
+      5
+    ],
+    "Matematyka": [
+      6
+    ]
+  },
+  "Krzysztof Kolumb": {
+  }
+}
