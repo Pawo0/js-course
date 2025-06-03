@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ksiega gosci</title>
+  </head>
+  <body>
+    <main>
+      <h1>Ksiega gosci</h1>
+      <div>
+        <% it.list.map((el) => { %>
+            <div>
+                <h2><%= el.name %></h2>
+                <p><%= el.tresc %></p>
+             </div>
+        <% }) %>
+      </div>
+      <form method="POST" action="/submit">
+        <label for="name">Twoje imie i naswisko</label>
+        <input name="name" value="" placeholder="Jan Kowalski" required>
+        <br />
+
+        <label for="tresc">Twoja tresc</label>
+        <textarea name="tresc" rows="5" cols="40" required></textarea>
+        <br />
+
+        <input type="submit" value="Zapisz">
+      </form>
+    </main>
+  </body>
+</html>

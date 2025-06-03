@@ -1,0 +1,10 @@
+{
+  "tasks": {
+    "dev": "deno run --watch main.ts",
+    "dev2": "deno run --watch --check --allow-net main.ts",
+    "app3_v2": "deno run --check --watch --allow-net --allow-read --allow-env --allow-sys app3_v2.ts"
+  },
+  "imports": {
+    "@std/assert": "jsr:@std/assert@1"
+  }
+}

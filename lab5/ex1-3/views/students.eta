@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Studenci</title>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+            <th>Nazwisko</th>
+            <th>Imię</th>
+            <th>Faculty</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% it.students.forEach((student) => { %>
+        <tr>
+            <td><%= student.lname %></td>
+            <td><%= student.fname %></td>
+            <td><%= student.faculty %></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </body>
+</html>
