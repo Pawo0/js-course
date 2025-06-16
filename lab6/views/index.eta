@@ -20,6 +20,24 @@
       }
     </style>
     <script>
+      function getTime(europe_city){
+        return new Promise(async (resolve, reject) =>{
+          try{
+            const result = await fetch(`https://www.timeapi.io/api/time/current/zone?timeZone=Europe%2F${europe_city}`,{
+              headers:{
+                "accept": "application/json"
+              }
+            })
+            const data = await result.json()
+
+            resolve(data)
+          } catch (e){
+            reject("Errorek " + e)
+          }
+        })
+      }
+
+
     function displayResult(source, method, type, data) {
       const resultDiv = document.getElementById('result-content');
       let content = '';
@@ -279,6 +297,13 @@
             <button onclick="console.clear() ; requestFetchAPI(&quot;POST&quot;,&quot;text&quot;, getName('POST'), true)">text</button>
             <button onclick="console.clear() ; requestFetchAPI(&quot;POST&quot;,&quot;json&quot;, getName('POST'), true)">json</button>
             <button onclick="console.clear() ; requestFetchAPI(&quot;POST&quot;,&quot;xml&quot;, getName('POST'), true)">xml</button>
+          </td>
+        </tr>
+        <tr>
+          <th>TimeAPI </th>
+          <td colspan="2">
+            <input type="text" id="city" name="city" placeholder="Enter city (e.g. Warsaw)">
+            <button onclick="getTime(document.getElementById('city').value).then(data => displayResult('TimeAPI', 'GET', 'json', data))">Get Time</button>
           </td>
         </tr>
       </table>
